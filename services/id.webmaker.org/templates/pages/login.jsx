@@ -127,7 +127,7 @@ var Login = React.createClass({
     }).then(function(response) {
       if ( response.status === 200 ) {
         WebmakerActions.validField({field: 'password'})
-        var redirectObj = Url.parse('/login/oauth/authorize', true);
+        var redirectObj = Url.parse('/oauth/authorize', true);
         redirectObj.query = {
           client_id: queryObj.client_id,
           response_type: queryObj.response_type,
