@@ -9,8 +9,6 @@ var loginURL =
     "client_id=" + oauth.client_id,
     "response_type=code",
   ].join("&");
-// var logoutURL =
-//   oauth.authorization_url + "/accounts/logout?client_id=" + oauth.client_id;
 
 var logoutURL = "/logout";
 
