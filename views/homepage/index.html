@@ -5,29 +5,7 @@
 {% endblock %}
 
 {% block top %}
-  <section class="get-started-feature">
-    <div class="content-wrapper">
-      <div class="left-side">
-        <h1>{{ gettext("thimbleTagLine") | safe }}</h1>
-        <p>
-          {{ gettext("thimbleDescription1") | safe }}
-        </p>
-        <div class="new-project-button-wrapper">
-          <a id="new-project-button" class="feature-button" href="/{{ locale }}/projects/new" title="{{ gettext("newProjectBtnTitle") }}" class="button">
-            <div class="pencil-animation">
-              <div class="line-wrapper">
-                <div class="line line-one"></div>
-                <div class="line line-two"></div>
-                <div class="line line-three"></div>
-              </div>
-              <div class="pencil"></div>
-            </div>
-            <span id="new-project-button-text">{{ gettext("newProjectBtn") }}</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+
 {% endblock %}
 
 {% block content %}
