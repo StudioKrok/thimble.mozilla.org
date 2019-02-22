@@ -5,13 +5,11 @@ const request = require("request");
 const HttpError = require("../../lib/http-error");
 
 module.exports = function(config, req, res, next) {
-  if (!!req.session) {
-    req.session = null;
+  if (!req.session || !req.session.user) {
     return res.redirect(307, "/");
   }
 
   const uri = `${config.oauth.authorization_url}/oauth/revoke_token/`;
-  console.log("revoking " + req.session.user.token);
   request.post(
     {
       url: uri,
@@ -55,6 +53,7 @@ module.exports = function(config, req, res, next) {
       }
 
       req.session = null;
+      res.clearCookie("sessionid");
       res.redirect(307, "/");
     }
   );
