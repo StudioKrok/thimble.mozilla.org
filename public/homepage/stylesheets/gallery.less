@@ -1,5 +1,49 @@
 @import "variables.less";
 
+.cheat-sheet-wrapper {
+  h1 {
+    text-align: center;
+    color: @darkgreen;
+  }
+
+  .camp-subjects {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .camp-subject {
+      max-width: 33%;
+      padding: 0 32px;
+
+      .camp-subject-title {
+        text-align: center;
+        color: @darkgreen;
+        padding: 0 32px;
+        border-bottom: 1px solid @darkgreen;
+      }
+
+      .subject-list {
+        list-style: none;
+        margin: 0 0 32px;
+        padding: 0;
+        text-align: center;
+
+        .subject-list-item {
+          margin-bottom: 16px;
+          a {
+            font-size: 1.2rem;
+            color: @link-blue;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
 .gallery-wrapper {
   background: #efefef;
 
