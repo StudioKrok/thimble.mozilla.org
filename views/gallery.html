@@ -1,7 +1,26 @@
 <div class="cheat-sheet-wrapper content-wrapper">
-    <h1>
-        Codekamp Web Editie
-    </h1>
+    <div class="cheat-sheet-title">
+        <div class="left-side">
+            <h1>
+                Codekamp Web Editie:
+            </h1>
+        </div>
+        <div class="right-side">
+           <div class="new-project-button-wrapper">
+              <a id="new-project-button" class="feature-button" href="/{{ locale }}/projects/new" title="{{ gettext("newProjectBtnTitle") }}" class="button">
+                <div class="pencil-animation">
+                  <div class="line-wrapper">
+                    <div class="line line-one"></div>
+                    <div class="line line-two"></div>
+                    <div class="line line-three"></div>
+                  </div>
+                  <div class="pencil"></div>
+                </div>
+                <span id="new-project-button-text">{{ gettext("newProjectBtn") }}</span>
+              </a>
+            </div>
+        </div>
+    </div>
     <div class="camp-subjects">
         <div class="camp-subject">
             <h2 class="camp-subject-title">

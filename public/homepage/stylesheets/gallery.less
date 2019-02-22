@@ -1,9 +1,45 @@
 @import "variables.less";
 
 .cheat-sheet-wrapper {
-  h1 {
+  .cheat-sheet-title {
     text-align: center;
-    color: @darkgreen;
+
+    .left-side,
+    .right-side {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      max-width: 49%;
+
+      h1 {
+        text-align: left;
+        color: @darkgreen;
+      }
+
+      .new-project-button-wrapper {
+        .feature-button {
+          position: relative;
+          margin-left: 32px;
+          font-size: 20px;
+          color: white;
+          background: @darkgreen;
+          padding: 12px 16px 13px;
+          border: solid 2px white;
+          text-decoration: none;
+          font-weight: 400;
+          border-radius: 3px;
+          display: inline-block;
+
+          + .feature-button {
+            margin-left: 10px;
+          }
+
+          &#new-project-button {
+            padding-left: 50px;
+          }
+        }
+      }
+    }
   }
 
   .camp-subjects {
