@@ -6,7 +6,7 @@ var HttpError = require("../../lib/http-error");
 module.exports = function(config, req, res, next) {
   var oauth = config.oauth;
   var cryptr = config.cryptr;
-  var authURL = `${oauth.authorization_url}/login/oauth/access_token`;
+  var authURL = `${oauth.authorization_url}/oauth/token/`;
   var locale = req.session.locale;
   if (!locale) {
     // This can happen when we try to logout again when we are already
@@ -146,7 +146,7 @@ module.exports = function(config, req, res, next) {
         {
           url: userURL,
           headers: {
-            Authorization: "token " + body.access_token
+            Authorization: "Bearer " + body.access_token
           }
         },
         function(err, response, body) {

@@ -5,14 +5,12 @@ var env = require("../lib/environment");
 var oauth = env.get("OAUTH");
 var loginURL =
   oauth.authorization_url +
-  "/login/oauth/authorize?" +
-  [
+  "/oauth/authorize?" + [
     "client_id=" + oauth.client_id,
     "response_type=code",
-    "scopes=user email"
   ].join("&");
-var logoutURL =
-  oauth.authorization_url + "/logout?client_id=" + oauth.client_id;
+
+var logoutURL = "/logout";
 
 // We make sure to grab just the protocol and hostname for
 // postmessage security.
