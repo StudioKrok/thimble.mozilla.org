@@ -18,11 +18,6 @@ module.exports = function(config, req, res, next) {
 
   res.set("Cache-Control", "no-cache");
 
-  if (req.query.logout) {
-    req.session = null;
-    return res.redirect(307, "/" + locale);
-  }
-
   if (!req.query.code) {
     res.status(401);
     return next(

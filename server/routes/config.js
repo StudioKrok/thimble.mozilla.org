@@ -10,7 +10,7 @@ var loginURL =
     "response_type=code",
   ].join("&");
 
-var logoutURL = "/logout";
+var logoutURL = oauth.authorization_url + "/accounts/logout?client_id=" + oauth.client_id;
 
 // We make sure to grab just the protocol and hostname for
 // postmessage security.

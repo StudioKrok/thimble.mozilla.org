@@ -1,60 +1,17 @@
 "use strict";
 
-const request = require("request");
-
-const HttpError = require("../../lib/http-error");
-
 module.exports = function(config, req, res, next) {
-  if (!req.session || !req.session.user) {
-    return res.redirect(307, "/");
+  var locale = req.session.locale;
+  if (!locale) {
+    // This can happen when we try to logout again when we are already
+    // logged out (i.e. the session doesn't exist and hence req.session.locale
+    // is undefined)
+    locale =
+      req.localeInfo && req.localeInfo.lang ? req.localeInfo.lang : "en-US";
   }
 
-  const uri = `${config.oauth.authorization_url}/oauth/revoke_token/`;
-  request.post(
-    {
-      url: uri,
-      form: {
-        client_id: config.oauth.client_id,
-        client_secret: config.oauth.client_secret,
-        token: req.session.user.token
-      }
-    },
-    function(err, response, body) {
-      if (err) {
-        res.status(500);
-        next(
-          HttpError.format(
-            {
-              message: `Failed to send request to ${
-                uri
-              }. Verify that the authentication server is up and running.`,
-              context: err
-            },
-            req
-          )
-        );
-        return;
-      }
+  res.set("Cache-Control", "no-cache");
 
-      if (response.statusCode !== 200) {
-        res.status(response.statusCode);
-        next(
-          HttpError.format(
-            {
-              message: `Request to ${uri} returned a status of ${
-                response.statusCode
-              }`,
-              context: response.body
-            },
-            req
-          )
-        );
-        return;
-      }
-
-      req.session = null;
-      res.clearCookie("sessionid");
-      res.redirect(307, "/");
-    }
-  );
+  req.session = null;
+  return res.redirect(307, "/" + locale);
 };

@@ -101,7 +101,7 @@ server.use(
 localize(
   server,
   Object.assign(env.get("L10N"), {
-    excludeLocaleInUrl: ["/projects/remix-bar", "/accounts", "/bramble", "/publish", "/publish/public_projects"]
+    excludeLocaleInUrl: ["/projects/remix-bar", "/accounts", "/bramble", "/publish", "/publish/public_projects", '/logout']
   })
 );
 
