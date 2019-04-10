@@ -11,7 +11,7 @@ module.exports = function(config, req, res) {
   req.session.locale =
     req.localeInfo && req.localeInfo.lang ? req.localeInfo.lang : "en-US";
 
-  var loginType = "&action=" + (req.query.signup ? "signup" : "signin");
+  var loginType = "&action=" + (req.query.signup ? "signup" : "login");
   var state = "&state=" + req.cookies.state;
 
   res.set({
