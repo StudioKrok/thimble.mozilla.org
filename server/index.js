@@ -13,6 +13,7 @@ let templatize = require("./templatize");
 let Request = require("./request");
 let Security = require("./security");
 let localize = require("./localize");
+let loginState = require("./loginState");
 let HttpError = require("./lib/http-error.js");
 let routes = require("./routes")();
 let config = require("./routes/config");
@@ -104,6 +105,11 @@ localize(
     excludeLocaleInUrl: ["/projects/remix-bar", "/accounts", "/bramble", "/publish", "/publish/public_projects", '/logout']
   })
 );
+
+/**
+ * Check login state cookie
+ */
+server.use(loginState.middleware());
 
 /**
  * API routes
