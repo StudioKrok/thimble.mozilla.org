@@ -24,13 +24,13 @@
     <section class="main-cta">
       <div class="content-wrapper centered-message">
         {% if status == 404 %}
-          <img class="spilled-thimble" src="/img/thimble-404.png" />
+          <img class="spilled-thimble" src="/img/bomberbot-logo.svg" />
           <h1>{{ gettext("errorPageNotFound") }}</h1>
           <h2>
             {{ gettext("errorPageNotFoundDetails") | safe }}
           </h2>
         {% else %}
-          <img class="spilled-thimble" src="/img/spilled-thimble.png" />
+          <img class="spilled-thimble" src="/img/bomberbot-logo.svg" />
           <h1>{{ gettext("errorSomethingWentWrong") }}</h1>
           <h2>
             {{ gettext("errorNotSureWhatWrong") }}
